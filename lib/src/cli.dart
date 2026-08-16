@@ -15,9 +15,9 @@ Future<int> runNexusCli(
   final options = args.isEmpty ? <String>[] : args.sublist(1);
   try {
     return switch (command) {
-      'serve' => _serve(options, environment ?? Platform.environment),
-      'doctor' => _doctor(options, environment ?? Platform.environment),
-      'demo' => _demo(options, environment ?? Platform.environment),
+      'serve' => await _serve(options, environment ?? Platform.environment),
+      'doctor' => await _doctor(options, environment ?? Platform.environment),
+      'demo' => await _demo(options, environment ?? Platform.environment),
       'healthcheck' => _healthcheck(
           options,
           environment ?? Platform.environment,
