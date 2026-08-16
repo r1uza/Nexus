@@ -18,7 +18,7 @@ Future<int> runNexusCli(
       'serve' => await _serve(options, environment ?? Platform.environment),
       'doctor' => await _doctor(options, environment ?? Platform.environment),
       'demo' => await _demo(options, environment ?? Platform.environment),
-      'healthcheck' => _healthcheck(
+      'healthcheck' => await _healthcheck(
           options,
           environment ?? Platform.environment,
         ),
