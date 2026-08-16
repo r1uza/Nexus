@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - name: Install dependencies
+        run: dart pub get
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Analyze
+        run: dart analyze
+      - name: Verify gates
+        run: dart run tool/verify.dart
+      - name: Compile executable
+        run: dart compile exe bin/nexus_sf.dart -o nexus-sf
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-sf-linux-x64
+          path: nexus-sf

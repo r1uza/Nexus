@@ -1,0 +1,12 @@
+name: nexus_sf
+version: 1.0.0
+description: Operational open-core coordination fabric for the SF ecosystem.
+publish_to: none
+repository: https://github.com/GITHUB_OWNER/NEXUS.sf
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+
+dependencies: {}
+
+dev_dependencies: {}

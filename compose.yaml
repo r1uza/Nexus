@@ -1,0 +1,23 @@
+services:
+  nexus-sf:
+    build: .
+    environment:
+      NEXUS_ADMIN_TOKEN: "${NEXUS_ADMIN_TOKEN:?set NEXUS_ADMIN_TOKEN}"
+      NEXUS_ALLOWED_ENDPOINT_HOSTS: "${NEXUS_ALLOWED_ENDPOINT_HOSTS:-}"
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - nexus_data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    stop_grace_period: 10s
+
+volumes:
+  nexus_data:
+

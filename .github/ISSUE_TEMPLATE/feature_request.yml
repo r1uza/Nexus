@@ -1,0 +1,47 @@
+name: Feature request
+description: Propose an open-core improvement for NEXUS.sf.
+title: "feature: "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: NEXUS.sf version
+    validations:
+      required: true
+  - type: input
+    id: dart
+    attributes:
+      label: Dart version
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps or current workflow
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior or limitation
+    validations:
+      required: true
+  - type: checkboxes
+    id: redaction
+    attributes:
+      label: Redaction
+      options:
+        - label: I removed secrets, authorization tickets, admin tokens, and request or response payloads.
+          required: true

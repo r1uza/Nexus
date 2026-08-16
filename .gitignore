@@ -1,0 +1,8 @@
+.dart_tool/
+.nexus-sf/
+build/
+coverage/
+*.exe
+*.log
+.env
+dist/
